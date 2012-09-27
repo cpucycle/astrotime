@@ -23,7 +23,7 @@ func NextSunset(tAfter time.Time, latitude float64, longitude float64) (tSunset 
 
 EXAMPLE:
 
-package main
+```package main
 
 import (
         "astrotime"
@@ -40,3 +40,4 @@ func main() {
         tzname, _ := t.Zone()
         fmt.Printf("The next sunrise at the Washington Monument is %d:%02d %s on %d/%d/%d.\n", t.Hour(), t.Minute(), tzname, t.Month(), t.Day(), t.Year())
 }
+```
