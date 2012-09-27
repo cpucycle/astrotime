@@ -23,7 +23,8 @@ func NextSunset(tAfter time.Time, latitude float64, longitude float64) (tSunset 
 
 EXAMPLE:
 
-```package main
+```go
+package main
 
 import (
         "astrotime"
