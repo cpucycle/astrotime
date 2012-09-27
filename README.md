@@ -6,19 +6,19 @@ NOAA astrological algorithms for sunrise and sunset ported to Go
 
 FUNCTIONS:
 
-// CalcSunrise calculates the sunrise, in local time, on the day t at the 
-// location specified in longitude and latitude.
-func CalcSunrise(t time.Time, latitude float64, longitude float64) time.Time
+// CalcSunrise calculates the sunrise, in local time, on the day t at the  
+// location specified in longitude and latitude.  
+func CalcSunrise(t time.Time, latitude float64, longitude float64) time.Time  
 
-// NextSunrise returns date/time of the next sunrise after tAfter
-func NextSunrise(tAfter time.Time, latitude float64, longitude float64) (tSunrise time.Time)
+// NextSunrise returns date/time of the next sunrise after tAfter  
+func NextSunrise(tAfter time.Time, latitude float64, longitude float64) (tSunrise time.Time)  
 
-// CalcSunset calculates the sunset, in local time,  on the day t at the 
-// location specified in longitude and latitude.
-func CalcSunset(t time.Time, latitude float64, longitude float64) time.Time
+// CalcSunset calculates the sunset, in local time,  on the day t at the  
+// location specified in longitude and latitude.  
+func CalcSunset(t time.Time, latitude float64, longitude float64) time.Time  
 
-// NextSunset returns date/time of the next sunset after tAfter
-func NextSunset(tAfter time.Time, latitude float64, longitude float64) (tSunset time.Time)
+// NextSunset returns date/time of the next sunset after tAfter  
+func NextSunset(tAfter time.Time, latitude float64, longitude float64) (tSunset time.Time)  
 
 
 EXAMPLE:
