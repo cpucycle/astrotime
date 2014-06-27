@@ -1,7 +1,7 @@
 astrotime
 =========
 
-NOAA astrological algorithms for sunrise and sunset ported to Go
+NOAA astronomical algorithms for sunrise and sunset ported to Go
 
 
 FUNCTIONS:
