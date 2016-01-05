@@ -1,11 +1,11 @@
 // NAA - NOAA's Astronomical Algorithms
 package astrotime
 
-// (JavaScript web page 
+// (JavaScript web page
 //  http://www.srrb.noaa.gov/highlights/sunrise/sunrise.html by
 //  Chris Cornwall, Aaron Horiuchi and Chris Lehman)
 // Ported to C++ by Pete Gray (petegray@ieee.org), July 2006
-// Released as Open Source and can be used in any way, as long as the 
+// Released as Open Source and can be used in any way, as long as the
 // above description remains in place.
 
 import (
@@ -306,10 +306,12 @@ func calcSunriseUTC(jd float64, latitude float64, longitude float64) float64 {
 	return timeUTC
 }
 
-// CalcSunrise calculates the sunrise, in local time,  on the day t at the 
+// CalcSunrise calculates the sunrise, in local time,  on the day t at the
 // location specified in longitude and latitude.
+// For why we flip the sign on longitude, see: http://www.esrl.noaa.gov/gmd/grad/solcalc/sunrise.html
 func CalcSunrise(t time.Time, latitude float64, longitude float64) time.Time {
 	jd := CalcJD(t)
+	longitude = -longitude
 	sunriseUTC := time.Duration(math.Floor(calcSunriseUTC(jd, latitude, longitude)*60) * 1e9)
 	loc, _ := time.LoadLocation("UTC")
 	return time.Date(t.Year(), t.Month(), t.Day(), 0, 0, 0, 0, loc).Add(sunriseUTC).In(t.Location())
@@ -377,10 +379,12 @@ func calcSunsetUTC(jd float64, latitude float64, longitude float64) float64 {
 	return 720 + timeDiff - eqTime
 }
 
-// CalcSunset calculates the sunset, in local time,  on the day t at the 
+// CalcSunset calculates the sunset, in local time,  on the day t at the
 // location specified in longitude and latitude.
+// For why we flip the sign on longitude, see: http://www.esrl.noaa.gov/gmd/grad/solcalc/sunrise.html
 func CalcSunset(t time.Time, latitude float64, longitude float64) time.Time {
 	jd := CalcJD(t)
+	longitude = -longitude
 	sunsetUTC := time.Duration(math.Floor(calcSunsetUTC(jd, latitude, longitude)*60) * 1e9)
 	loc, _ := time.LoadLocation("UTC")
 	return time.Date(t.Year(), t.Month(), t.Day(), 0, 0, 0, 0, loc).Add(sunsetUTC).In(t.Location())
